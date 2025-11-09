@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages (if any)
+Disallow: /private/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://sangam-opticals.com/sitemap.xml

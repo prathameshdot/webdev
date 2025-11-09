@@ -1,0 +1,130 @@
+<!-- 
+==========================================================================
+                            FOOTER COMPONENT
+                     Footer Links, Social Media, Eye Test Modal & Scripts
+==========================================================================
+-->
+
+<!-- Eye Test Modal -->
+<div id="eyeTestModal" class="modal">
+    <div class="modal-content glass">
+        <div class="modal-header">
+            <h3>Free Online Vision Screening</h3>
+            <span class="close" onclick="closeEyeTest()">&times;</span>
+        </div>
+        <div class="eye-test-content">
+            <div class="test-instructions">
+                <p>This is a basic vision screening test. It cannot replace a comprehensive eye examination by a qualified optometrist.</p>
+                <div class="test-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <p>Sit 3 feet away from your screen</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <p>Cover one eye with your hand</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <p>Read the smallest line you can see clearly</p>
+                    </div>
+                </div>
+            </div>
+            <div class="vision-chart">
+                <div class="chart-line line-1">E</div>
+                <div class="chart-line line-2">F P</div>
+                <div class="chart-line line-3">T O Z</div>
+                <div class="chart-line line-4">L P E D</div>
+                <div class="chart-line line-5">P E D F C Z</div>
+                <div class="chart-line line-6">D F P O T E C</div>
+                <div class="chart-line line-7">F E L O P Z D</div>
+                <div class="chart-line line-8">T O F D P L Z E</div>
+            </div>
+            <div class="test-question">
+                <p>What's the smallest line you can read clearly?</p>
+                <div class="line-buttons">
+                    <button class="line-btn" data-line="1">Line 1</button>
+                    <button class="line-btn" data-line="2">Line 2</button>
+                    <button class="line-btn" data-line="3">Line 3</button>
+                    <button class="line-btn" data-line="4">Line 4</button>
+                    <button class="line-btn" data-line="5">Line 5</button>
+                    <button class="line-btn" data-line="6">Line 6</button>
+                    <button class="line-btn" data-line="7">Line 7</button>
+                    <button class="line-btn" data-line="8">Line 8</button>
+                </div>
+            </div>
+            <div class="test-result" id="testResult" style="display: none;">
+                <h4>Screening Results</h4>
+                <p id="resultText"></p>
+                <button class="btn btn-primary" onclick="scrollToSection('contact')">Book Professional Eye Exam</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer glass">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <a href="#home" class="logo-link">
+                        <i class="fas fa-eye"></i>
+                        <span>Sangam</span>
+                    </a>
+                </div>
+                <p>Your trusted partner for comprehensive eye care and premium optical solutions since 1989.</p>
+                <div class="footer-contact">
+                    <p><i class="fas fa-phone"></i> 073832 39802</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kolhapur, Maharashtra</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li>Eye Examinations</li>
+                    <li>Prescription Glasses</li>
+                    <li>Contact Lenses</li>
+                    <li>Sunglasses</li>
+                    <li>Repairs & Adjustments</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="footer-hours">
+                    <p><strong>Opening Hours</strong></p>
+                    <p>Mon - Sat: 9:00 AM - 8:00 PM</p>
+                    <p>Sunday: 10:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sangam Opticals. All rights reserved. | 35 Years in Business</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Decorative Elements -->
+<div class="gradient-circle circle1"></div>
+<div class="gradient-circle circle2"></div>
+<div class="gradient-circle circle3"></div>
+<div class="gradient-circle circle4"></div>
+
+<!-- JavaScript -->
+<script src="script.js"></script>

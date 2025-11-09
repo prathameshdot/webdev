@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Sangam Opticals - Premium Eye Care Solutions | Comprehensive Vision Services</title>
+    <meta name="title" content="Sangam Opticals - Premium Eye Care Solutions">
+    <meta name="description" content="Experience exceptional eye care at Sangam Opticals. Comprehensive eye exams, designer frames, advanced technology, and expert optometrists. Serving the community with 20+ years of excellence.">
+    <meta name="keywords" content="eye care, optical shop, eye exam, eyeglasses, contact lenses, vision care, optometrist, prescription glasses, designer frames, blue light glasses">
+    <meta name="author" content="Sangam Opticals">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sangam-opticals.com/">
+    <meta property="og:title" content="Sangam Opticals - Premium Eye Care Solutions">
+    <meta property="og:description" content="Experience exceptional eye care at Sangam Opticals. Comprehensive eye exams, designer frames, and advanced technology.">
+    <meta property="og:image" content="https://sangam-opticals.com/assets/og-image.jpg">
+    <meta property="og:site_name" content="Sangam Opticals">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sangam-opticals.com/">
+    <meta property="twitter:title" content="Sangam Opticals - Premium Eye Care Solutions">
+    <meta property="twitter:description" content="Experience exceptional eye care at Sangam Opticals. Comprehensive eye exams, designer frames, and advanced technology.">
+    <meta property="twitter:image" content="https://sangam-opticals.com/assets/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sangam-opticals.com/">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- 3D Model Viewer -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Sangam Opticals",
+      "image": "https://sangam-opticals.com/assets/logo.png",
+      "@id": "https://sangam-opticals.com",
+      "url": "https://sangam-opticals.com",
+      "telephone": "+1-555-123-4567",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Vision Street",
+        "addressLocality": "Kolhapur",
+        "addressRegion": "Maharashtra",
+        "postalCode": "416001",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 16.6937,
+        "longitude": 74.2437
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://facebook.com/sangamopticals",
+        "https://instagram.com/sangamopticals",
+        "https://twitter.com/sangamopticals"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "2847"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!--
+    ==========================================================================
+                            COMPONENT-BASED WEBSITE
+                        Loading components dynamically
+    ==========================================================================
+    -->
+    
+    <!-- Loading Screen -->
+    <div id="loading" class="loading-screen">
+        <div class="loading-spinner">
+            <i class="fas fa-eye"></i>
+            <p>Loading Sangam...</p>
+        </div>
+    </div>
+
+    <!-- Component Containers -->
+    <div id="header-component"></div>
+    <div id="hero-component"></div>
+    <div id="about-component"></div>
+    <div id="services-component"></div>
+    <div id="technology-component"></div>
+    <div id="eye-model-component"></div>
+    <div id="testimonials-component"></div>
+    <div id="contact-component"></div>
+    <div id="footer-component"></div>
+
+    <!-- Component Loader Script -->
+    <script>
+        // Component loading configuration
+        const components = [
+            { file: 'components/header.html', container: 'header-component' },
+            { file: 'components/hero.html', container: 'hero-component' },
+            { file: 'components/about.html', container: 'about-component' },
+            { file: 'components/services.html', container: 'services-component' },
+            { file: 'components/technology.html', container: 'technology-component' },
+            { file: 'components/eye-model.html', container: 'eye-model-component' },
+            { file: 'components/testimonials.html', container: 'testimonials-component' },
+            { file: 'components/contact.html', container: 'contact-component' },
+            { file: 'components/footer.html', container: 'footer-component' }
+        ];
+
+        // Function to load components with CORS handling
+        async function loadComponent(file, containerId) {
+            try {
+                // Try fetch first
+                const response = await fetch(file, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'text/html'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const html = await response.text();
+                
+                // Extract only the main content (skip the header comments)
+                const contentMatch = html.match(/(<section[\s\S]*?<\/section>|<nav[\s\S]*?<\/nav>|<div id="eyeTestModal"[\s\S]*?<\/script>|<footer[\s\S]*?<\/footer>)/);
+                const content = contentMatch ? contentMatch[0] : html;
+                
+                document.getElementById(containerId).innerHTML = content;
+                return true;
+            } catch (error) {
+                console.warn(`Failed to load component via fetch: ${file}`, error);
+                
+                // Fallback: try using XMLHttpRequest
+                return new Promise((resolve) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', file, true);
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200 || xhr.status === 0) {
+                                const html = xhr.responseText;
+                                const contentMatch = html.match(/(<section[\s\S]*?<\/section>|<nav[\s\S]*?<\/nav>|<div id="eyeTestModal"[\s\S]*?<\/script>|<footer[\s\S]*?<\/footer>)/);
+                                const content = contentMatch ? contentMatch[0] : html;
+                                document.getElementById(containerId).innerHTML = content;
+                                resolve(true);
+                            } else {
+                                console.error(`Failed to load component: ${file} - Status: ${xhr.status}`);
+                                // Load fallback content
+                                loadFallbackContent(containerId);
+                                resolve(false);
+                            }
+                        }
+                    };
+                    xhr.send();
+                });
+            }
+        }
+
+        // Fallback content for when components fail to load
+        function loadFallbackContent(containerId) {
+            const fallbackContent = {
+                'header-component': `
+                    <nav class="navbar glass">
+                        <div class="nav-container">
+                            <div class="nav-logo">
+                                <a href="#home" class="logo-link">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Sangam</span>
+                                </a>
+                            </div>
+                            <ul class="nav-menu">
+                                <li><a href="#home" class="nav-link">Home</a></li>
+                                <li><a href="#about" class="nav-link">About</a></li>
+                                <li><a href="#services" class="nav-link">Services</a></li>
+                                <li><a href="#technology" class="nav-link">Technology</a></li>
+                                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                                <li><a href="#contact" class="nav-link">Contact</a></li>
+                            </ul>
+                            <div class="theme-toggle">
+                                <button id="toggleTheme" class="theme-btn">
+                                    <i class="fas fa-moon" id="theme-icon"></i>
+                                </button>
+                            </div>
+                            <div class="mobile-nav-toggle">
+                                <button id="mobileMenuBtn" class="theme-btn">
+                                    <i class="fas fa-bars"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="mobile-nav-overlay"></div>
+                    <div class="mobile-nav-drawer">
+                        <div class="mobile-nav-header">
+                            <div class="nav-logo">
+                                <a href="#home" class="logo-link">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Sangam</span>
+                                </a>
+                            </div>
+                            <button id="closeMobileMenuBtn" class="theme-btn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <ul class="mobile-nav-menu">
+                            <li><a href="#home" class="mobile-nav-link">Home</a></li>
+                            <li><a href="#about" class="mobile-nav-link">About</a></li>
+                            <li><a href="#services" class="mobile-nav-link">Services</a></li>
+                            <li><a href="#technology" class="mobile-nav-link">Technology</a></li>
+                            <li><a href="#testimonials" class="mobile-nav-link">Testimonials</a></li>
+                            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                        </ul>
+                    </div>`,
+                'hero-component': `
+                    <section id="home" class="hero">
+                        <div class="hero-content glass">
+                            <h1 class="hero-title">Premium Vision Care Solutions</h1>
+                            <p class="hero-subtitle">Experience cutting-edge optical technology and personalized eye care from certified professionals. Your vision is our mission.</p>
+                        </div>
+                    </section>`,
+                'footer-component': `
+                    <footer class="footer glass">
+                        <div class="container">
+                            <div class="footer-content">
+                                <div class="footer-section">
+                                    <div class="footer-logo">
+                                        <a href="#home" class="logo-link">
+                                            <i class="fas fa-eye"></i>
+                                            <span>Sangam</span>
+                                        </a>
+                                    </div>
+                                    <p>Your trusted partner for comprehensive eye care and premium optical solutions since 2008.</p>
+                                </div>
+                            </div>
+                            <div class="footer-bottom">
+                                <p>&copy; 2025 Sangam. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </footer>`
+            };
+            
+            if (fallbackContent[containerId]) {
+                document.getElementById(containerId).innerHTML = fallbackContent[containerId];
+                console.log(`Loaded fallback content for ${containerId}`);
+            }
+        }
+
+        // Load all components with better error handling
+        async function loadAllComponents() {
+            let loadedCount = 0;
+            let totalComponents = components.length;
+            
+            console.log(`Starting to load ${totalComponents} components...`);
+            
+            for (const component of components) {
+                try {
+                    const success = await loadComponent(component.file, component.container);
+                    if (success) {
+                        loadedCount++;
+                        console.log(`✓ Loaded: ${component.file}`);
+                    } else {
+                        console.warn(`✗ Failed: ${component.file}`);
+                    }
+                } catch (error) {
+                    console.error(`✗ Error loading ${component.file}:`, error);
+                }
+            }
+            
+            // Hide loading screen regardless of success
+            const loading = document.getElementById('loading');
+            if (loading) {
+                loading.style.opacity = '0';
+                setTimeout(() => loading.remove(), 500);
+            }
+            
+            if (loadedCount === 0) {
+                // Show error message if no components loaded
+                showErrorMessage();
+            } else {
+                console.log(`✓ Successfully loaded ${loadedCount}/${totalComponents} components`);
+                
+                // Initialize the application after components are loaded
+                setTimeout(() => {
+                    if (typeof initializeApp === 'function') {
+                        initializeApp();
+                    }
+                    
+                    // Initialize script functionality
+                    if (typeof window.initializeWebsite === 'function') {
+                        window.initializeWebsite();
+                    }
+                }, 100);
+            }
+        }
+
+        // Show error message when components fail to load
+        function showErrorMessage() {
+            const errorContainer = document.createElement('div');
+            errorContainer.innerHTML = `
+                <div style="position: fixed; top: 20px; right: 20px; z-index: 10000; background: #ff4444; color: white; padding: 1rem; border-radius: 8px; max-width: 300px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h4 style="margin: 0 0 0.5rem 0;">⚠️ Component Loading Failed</h4>
+                    <p style="margin: 0; font-size: 0.9rem;">Some components couldn't load. Try refreshing or using a local server.</p>
+                    <button onclick="this.parentElement.parentElement.remove()" style="position: absolute; top: 5px; right: 10px; background: none; border: none; color: white; cursor: pointer; font-size: 18px;">×</button>
+                </div>
+            `;
+            document.body.appendChild(errorContainer);
+        }
+
+        // Start loading components when DOM is ready
+        document.addEventListener('DOMContentLoaded', loadAllComponents);
+    </script>
+
+    <!-- Main Application Script -->
+    <script src="script.js"></script>
+
+    <!-- Register Service Worker for PWA support -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(function(err) {
+                        console.warn('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+
+    <!-- Loading Screen Styles -->
+    <style>
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #4A90E2 0%, #50E3C2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-spinner {
+            text-align: center;
+            color: white;
+        }
+
+        .loading-spinner i {
+            font-size: 3rem;
+            animation: pulse 2s ease-in-out infinite;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .loading-spinner p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+    </style>
+</body>
+</html>

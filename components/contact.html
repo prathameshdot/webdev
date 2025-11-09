@@ -1,0 +1,203 @@
+<!-- 
+==========================================================================
+                            CONTACT SECTION COMPONENT
+                 Contact Info, Map, Appointment Form & Quick Actions
+==========================================================================
+-->
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <p>Schedule an appointment or contact us for more information</p>
+        </div>
+        <div class="contact-layout">
+            <div class="contact-main">
+                <div class="contact-info glass">
+                    <h3>Visit Our Clinic</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-content">
+                                <h4>Address</h4>
+                                <p>123 Vision Street, Downtown<br>Medical Center Plaza, Suite 205<br>City Center, State 12345</p>
+                                <a href="#" class="get-directions">Get Directions →</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-content">
+                                <h4>Phone</h4>
+                                <p class="primary-phone">(555) 123-4567</p>
+                                <span class="phone-note">Call for appointments</span>
+                                <div class="contact-badges">
+                                    <!-- Badges will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-content">
+                                <h4>Email</h4>
+                                <p>info@sangam-optics.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-content">
+                                <h4>Business Hours</h4>
+                                <div class="hours-list">
+                                    <div class="hour-item">
+                                        <span>Monday - Saturday:</span>
+                                        <span>9:00 AM - 8:00 PM</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span>Sunday:</span>
+                                        <span>10:00 AM - 6:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Map moved here -->
+                    <div class="map-container" style="margin-top: 2rem;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.696994834235!2d74.24143307490476!3d16.69346178408059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc100067d1a8e91%3A0x2533b3534829195!2sSANGAM%20OPTICALS!5e0!3m2!1sen!2sin!4v1678886215654!5m2!1sen!2sin"
+                            width="100%" 
+                            height="300" 
+                            style="border:0; border-radius: 12px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <form id="contact-form" class="contact-form glass">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="service">Preferred Service *</label>
+                    <div class="custom-select">
+                        <select id="service" name="service" required>
+                            <option value="">Select a service...</option>
+                            <option value="eye-exam">Comprehensive Eye Examination</option>
+                            <option value="glasses">Prescription Glasses</option>
+                            <option value="contacts">Contact Lens Fitting</option>
+                            <option value="sunglasses">Designer Sunglasses</option>
+                            <option value="pediatric">Pediatric Eye Care</option>
+                            <option value="repair">Eyewear Repair</option>
+                            <option value="emergency">Eye Emergency</option>
+                            <option value="consultation">General Consultation</option>
+                        </select>
+                        <div class="select-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="preferredDate">Preferred Date</label>
+                        <input type="date" id="preferredDate" name="preferredDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="preferredTime">Preferred Time</label>
+                        <div class="custom-select">
+                            <select id="preferredTime" name="preferredTime">
+                                <option value="">Select time...</option>
+                                <option value="9:00">9:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="17:00">5:00 PM</option>
+                            </select>
+                            <div class="select-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="insurance">Insurance Provider (Optional)</label>
+                    <input type="text" id="insurance" name="insurance" placeholder="e.g., Blue Cross, Aetna, VSP">
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Information</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about any specific concerns or questions..."></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">Subscribe to our newsletter for eye health tips and promotions</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit">
+                    <i class="fas fa-calendar-check"></i>
+                    Schedule Appointment
+                </button>
+                <div class="form-footer">
+                    <p>By submitting this form, you agree to our privacy policy. We'll never share your information.</p>
+                </div>
+            </form>
+        </div>
+        <div class="quick-actions glass">
+            <h3>Quick Actions</h3>
+            <div class="actions-grid">
+                <a href="tel:+15551234567" class="action-item">
+                    <div class="action-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Call Now</h4>
+                        <p>Speak directly with our team</p>
+                    </div>
+                </a>
+                <a href="mailto:info@sangam-optics.com" class="action-item">
+                    <div class="action-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Send Email</h4>
+                        <p>Get a response within 24 hours</p>
+                    </div>
+                </a>
+                <a href="#" class="action-item" onclick="openEyeTest()">
+                    <div class="action-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Free Eye Test</h4>
+                        <p>Take our online vision screening</p>
+                    </div>
+                </a>
+                <a href="#" class="action-item">
+                    <div class="action-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Virtual Consultation</h4>
+                        <p>Video call with our experts</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

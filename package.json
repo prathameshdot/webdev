@@ -1,0 +1,40 @@
+{
+  "name": "sangam-optics-website",
+  "version": "1.0.0",
+  "description": "Premium optical shop website with responsive design and modern features",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000 || python3 -m http.server 8000",
+    "dev": "npm run start",
+    "serve": "python -m http.server 8000 || python3 -m http.server 8000",
+    "build": "node build-components.js",
+    "clean": "node build-components.js --clean",
+    "start:prod": "npx http-server public -p 8000 --silent",
+    "deploy:vercel": "vercel --prod",
+    "deploy:netlify": "netlify deploy --prod --dir .",
+    "deploy:firebase": "firebase deploy",
+    "test": "echo 'Starting local server for testing...' && npm run start"
+  },
+  "keywords": [
+    "eye-care",
+    "optical",
+    "responsive-design",
+    "component-based",
+    "glassmorphism",
+    "healthcare",
+    "vision-care",
+    "optometry",
+    "eyewear",
+    "medical"
+  ],
+  "author": "Sangam Opticals",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sangam/optical-shop.git"
+  },
+  "homepage": "https://sangam-opticals.com",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
