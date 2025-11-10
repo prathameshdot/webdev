@@ -10,6 +10,27 @@ let toggleBtn, themeIcon, mobileToggleBtn, mobileThemeIcon;
 let bodyEl, navLinks, mobileMenuBtn, closeMobileMenuBtn, mobileNavOverlay, mobileNavDrawer, mobileNavLinks;
 let contactForm, serviceCards;
 let testimonialsContainer, dots, prevBtn, nextBtn, slides, totalSlides;
+let testimonialsIntervalId;
+
+// EmailJS configuration (you provided service id)
+const emailjsConfig = {
+    serviceId: 'service_0zzn02b',
+    templateId: 'template_YOUR_TEMPLATE_ID', // replace with your EmailJS template id
+    publicKey: 'YOUR_PUBLIC_KEY' // replace with your EmailJS public key (user id)
+};
+
+function loadEmailJS() {
+    if (window.emailjs) {
+        try { if (emailjsConfig.publicKey) emailjs.init(emailjsConfig.publicKey); } catch (e) { console.warn('EmailJS init error', e); }
+        return;
+    }
+    const s = document.createElement('script');
+    s.src = 'https://cdn.emailjs.com/sdk/3.2.0/email.min.js';
+    s.async = true;
+    s.onload = () => { try { if (emailjsConfig.publicKey) emailjs.init(emailjsConfig.publicKey); } catch (e) { console.warn('EmailJS init error', e); } };
+    s.onerror = () => console.warn('Failed to load EmailJS SDK');
+    document.head.appendChild(s);
+}
 let eyeTestModal, lineButtons, testResult, resultText;
 let currentSlide = 0;
 
@@ -63,6 +84,8 @@ function initializeWebsite() {
 
     // Load JSON content to populate text and images
     fetchContentAndPopulate();
+    // Load EmailJS SDK and init if configured
+    loadEmailJS();
 }
 
 // expose initializer for index.html loader
@@ -250,19 +273,27 @@ function prevSlide() {
 }
 
 function initTestimonialsCarousel() {
-    if (!nextBtn || !prevBtn) return;
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
+    if (!slides || slides.length === 0) return;
 
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            currentSlide = parseInt(dot.dataset.slide);
-            updateCarousel();
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+    if (dots && dots.length) {
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentSlide = parseInt(dot.dataset.slide);
+                updateCarousel();
+            });
         });
-    });
+    }
 
-    // Auto-play carousel
-    setInterval(nextSlide, 5000);
+    // Auto-play carousel with pause on hover
+    testimonialsIntervalId = setInterval(nextSlide, 5000);
+    const carouselEl = document.querySelector('.testimonials-carousel');
+    if (carouselEl) {
+        carouselEl.addEventListener('mouseenter', () => { clearInterval(testimonialsIntervalId); });
+        carouselEl.addEventListener('mouseleave', () => { testimonialsIntervalId = setInterval(nextSlide, 5000); });
+    }
 }
 
 /*
@@ -331,7 +362,10 @@ function initEyeTestModal() {
 function initFormValidation() {
     if (!contactForm) return;
 
-    contactForm.addEventListener('submit', e => {
+    const submitBtn = contactForm.querySelector('.form-submit');
+    const msgEl = document.getElementById('contact-form-msg');
+
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Get form data
@@ -342,35 +376,98 @@ function initFormValidation() {
         const service = document.getElementById('service').value;
         const preferredDate = document.getElementById('preferredDate').value;
         const preferredTime = document.getElementById('preferredTime').value;
-        const message = document.getElementById('message').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const insurance = document.getElementById('insurance') ? document.getElementById('insurance').value.trim() : '';
 
         // Validate required fields
         if (!firstName || !lastName || !email || !service) {
-            alert('Please fill in all required fields (*).');
+            if (msgEl) {
+                msgEl.textContent = 'Please fill in all required fields (*).';
+                msgEl.classList.remove('success');
+                msgEl.classList.add('error');
+            } else {
+                alert('Please fill in all required fields (*).');
+            }
             return;
         }
 
-        // Format message for WhatsApp
-        const fullMessage = `
-Hello Sangam, I would like to book an appointment.
+        const payload = {
+            firstName, lastName, email, phone, insurance, service, preferredDate, preferredTime, message,
+            newsletter: !!document.getElementById('newsletter')?.checked,
+            submittedAt: new Date().toISOString()
+        };
 
-*Name:* ${firstName} ${lastName}
-*Email:* ${email}
-*Phone:* ${phone || 'Not provided'}
-*Service:* ${service}
-*Preferred Date:* ${preferredDate || 'Not specified'}
-*Preferred Time:* ${preferredTime || 'Not specified'}
-*Additional Info:* ${message || 'None'}
-        `.trim().replace(/\n\s*\n/g, '\n'); // Clean up extra blank lines
+        const endpoint = contactForm.dataset.endpoint; // set this in HTML to POST to a server (e.g. Formspree)
 
-        // Open WhatsApp
-        const whatsappNumber = '919999999999'; // Replace with real number
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(fullMessage)}`;
+        if (endpoint) {
+            try {
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.setAttribute('aria-busy', 'true'); }
+                if (msgEl) { msgEl.textContent = 'Sending...'; msgEl.classList.remove('success','error'); }
 
-        window.open(whatsappUrl, '_blank');
+                const res = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
 
-        alert('You will be redirected to WhatsApp to send your appointment request. Please press send in WhatsApp.');
-        contactForm.reset();
+                if (res.ok) {
+                    if (msgEl) { msgEl.textContent = 'Thanks — your request was sent. We will contact you shortly.'; msgEl.classList.add('success'); }
+                    contactForm.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (err) {
+                console.error('Contact form submit error', err);
+                if (msgEl) { msgEl.textContent = 'Sorry — something went wrong. Please try again or contact us by phone.'; msgEl.classList.add('error'); }
+            } finally {
+                if (submitBtn) { submitBtn.disabled = false; submitBtn.removeAttribute('aria-busy'); }
+            }
+        } else {
+            // Try EmailJS if configured
+            if (emailjsConfig && emailjsConfig.serviceId && emailjsConfig.templateId && (window.emailjs || emailjs)) {
+                try {
+                    if (submitBtn) { submitBtn.disabled = true; submitBtn.setAttribute('aria-busy', 'true'); }
+                    if (msgEl) { msgEl.textContent = 'Sending via Email...'; msgEl.classList.remove('success','error'); }
+
+                    const templateParams = {
+                        first_name: firstName,
+                        last_name: lastName,
+                        email: email,
+                        phone: phone,
+                        insurance: insurance || '',
+                        service: service,
+                        preferred_date: preferredDate || '',
+                        preferred_time: preferredTime || '',
+                        message: message || ''
+                    };
+
+                    // emailjs may be on window
+                    const emailjsClient = window.emailjs || emailjs;
+                    const sendPromise = emailjsClient.send(emailjsConfig.serviceId, emailjsConfig.templateId, templateParams);
+                    sendPromise.then(() => {
+                        if (msgEl) { msgEl.textContent = 'Thanks — your message was sent.'; msgEl.classList.add('success'); }
+                        contactForm.reset();
+                    }).catch(err => {
+                        console.error('EmailJS send error', err);
+                        if (msgEl) { msgEl.textContent = 'Sorry — email sending failed. Please try the WhatsApp option or call us.'; msgEl.classList.add('error'); }
+                    }).finally(() => {
+                        if (submitBtn) { submitBtn.disabled = false; submitBtn.removeAttribute('aria-busy'); }
+                    });
+                } catch (err) {
+                    console.error('EmailJS error', err);
+                    if (msgEl) { msgEl.textContent = 'EmailJS is not configured correctly.'; msgEl.classList.add('error'); }
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.removeAttribute('aria-busy'); }
+                }
+            } else {
+                // Fallback: open WhatsApp with prefilled message
+                const fullMessage = `\nHello Sangam, I would like to book an appointment.\n\n*Name:* ${firstName} ${lastName}\n*Email:* ${email}\n*Phone:* ${phone || 'Not provided'}\n*Insurance:* ${insurance || 'Not provided'}\n*Service:* ${service}\n*Preferred Date:* ${preferredDate || 'Not specified'}\n*Preferred Time:* ${preferredTime || 'Not specified'}\n*Additional Info:* ${message || 'None'}`;
+                const whatsappNumber = '919999999999'; // Replace with real number
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(fullMessage)}`;
+                window.open(whatsappUrl, '_blank');
+                if (msgEl) { msgEl.textContent = 'You will be redirected to WhatsApp. Please press send there to complete the request.'; msgEl.classList.remove('error'); msgEl.classList.add('success'); }
+                contactForm.reset();
+            }
+        }
     });
 }
 
