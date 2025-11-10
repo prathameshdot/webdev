@@ -3,14 +3,14 @@
     "title": "Sangam Opticals \n\n   — The Complete Optical Shop",
     "subtitle": "Premium frames, precise eye exams and personalised lens solutions. Visit our shop for expert service and latest eyewear trends.",
     "stats": [
-      { "icon": "fas fa-award", "value": "35+", "label": "Years in Business" },
+      { "icon": "fas fa-award", "value": "25+", "label": "Years in Business" },
       { "icon": "fas fa-users", "value": "25,000+", "label": "Happy Clients" },
       { "icon": "fas fa-star", "value": "4.9/5", "label": "Customer Rating" },
       { "icon": "fas fa-shield-check", "value": "100%", "label": "Satisfaction" }
     ]
   },
   "about": {
-    "heading": "Excellence in Eye Care for Over 35 Years",
+    "heading": "Excellence in Eye Care for Over 25 Years",
     "paragraphs": [
       "Sangam Opticals has been serving the Rajarampuri community with trusted optical solutions and personalised care. Our certified optometrists use modern diagnostics to ensure your vision is at its best.",
       "We provide a wide range of eyewear — from designer frames and sunglasses to precision prescription lenses and contact lens fittings. Our in-house lab and experienced staff means fast turnarounds and accurate results."
@@ -18,7 +18,7 @@
   },
   "contact": {
     "address": "P62R+FQW, Sykes Extension, Rajarampuri,<br>Kolhapur, Maharashtra 416001",
-    "primaryPhone": "073832 39802",
+    "primaryPhone": "+91 98900 75295",
     "email": "info@sangamopticals.in",
     "hours": [
         { "days": "Monday - Saturday", "time": "10:00 AM - 9:00 PM" },
